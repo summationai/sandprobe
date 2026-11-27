@@ -76,3 +76,30 @@ A mismatched, edited, partial or unsupported sidecar is refused. A structurally 
 `gaps` adds no endpoint opt-in, network exception, device or privilege. Its exit status follows the saved assessment:
 0 for a valid complete assessment, 5 for a valid incomplete assessment, and 2 for unsupported/unsafe inputs.
 Successful generation does not mean that every check ran, or that the gaps can all be closed on the current provider.
+
+## Timeboxed work dispositions
+
+New `gaps` output declares `sandprobe.measurement-gaps/2` and assigns each inconclusive row one disposition.
+This is a work plan layered over the original result, not a new grade or proof. Version1 consumers need to accept
+the new version explicitly; the saved report and prerequisite schemas do not change.
+
+| Disposition | Work rule |
+|---|---|
+| `policy` | Keep the exclusion/opt-out. Do not implement around it or enable an endpoint to improve the count. |
+| `not_applicable` | The defined discovery or a recognized feature/lifecycle gate supplies no target in this configuration. Do not install a proxy, attach a device or fabricate reset support. |
+| `unprovable` | The current find-only or route measurement cannot decide the negative from silence, a reset or an unsigned error. Repeated runs are not work items. |
+| `bridgeable` | A specific configuration/prerequisite repair or bounded investigation may improve evidence. The label promises neither a fix nor permission. Require fresh proof before changing the result. |
+
+Explicit scope exclusions take priority when they hide another prerequisite. For example, an excluded vsock check
+remains policy even though connectivity implementation is also missing. The plan retains both requirements.
+The absence of a recorded prerequisite is not evidence that the feature is absent.
+
+SEC-5 with effective or permitted CAP_SETUID/CAP_SETGID is a bridgeable configuration candidate. Remove unnecessary
+capabilities in an explicit workload configuration, then test again. The existing Nitro `reference-open` profile
+already drops all capabilities; the managed Nitro and Daytona workloads also request zero capabilities. Keep
+these hardened runs distinct from the native documented-default Nitro run. A zero capability mask does not replace
+full process-target coverage, eligible refusals or the positive/negative controls. Bounding-only capabilities do not
+mean the agent currently holds them. Never promote a prior unknown or not-found result because settings changed.
+
+A useful end-of-day handoff records the source/configuration cohort, every row's disposition, any synthetic bug
+reproduction, checks performed and unresolved dependencies. Report improvements only from new measured evidence.

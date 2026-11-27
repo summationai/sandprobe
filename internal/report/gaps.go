@@ -12,6 +12,8 @@ type GapRequirement struct {
 }
 type MeasurementGap struct {
 	ID           string           `json:"id"`
+	Disposition  string           `json:"disposition"`
+	Basis        string           `json:"basis"`
 	Result       string           `json:"result"`
 	Requirements []GapRequirement `json:"requirements"`
 	Next         string           `json:"next"`
@@ -26,12 +28,13 @@ type GapPlan struct {
 	Skipped       int              `json:"skipped"`
 	ScopedOut     int              `json:"scoped_out"`
 	Gaps          []MeasurementGap `json:"gaps"`
+	Dispositions  map[string]int   `json:"dispositions"`
 }
 
 // MeasurementGapPlan is structural-only analysis of saved or in-memory inputs.
 // EVD-22: no arbitrary input text is copied and no gap is a new measurement.
 func MeasurementGapPlan(d Doc, p *obs.MeasurementPrerequisites) (GapPlan, error) {
-	plan := GapPlan{Schema: "sandprobe.measurement-gaps/1", Verification: "saved_inputs_not_authenticated", Prerequisites: "not_recorded", Gaps: []MeasurementGap{}}
+	plan := GapPlan{Schema: "sandprobe.measurement-gaps/2", Verification: "saved_inputs_not_authenticated", Prerequisites: "not_recorded", Gaps: []MeasurementGap{}, Dispositions: map[string]int{"policy": 0, "not_applicable": 0, "unprovable": 0, "bridgeable": 0}}
 	bad := errors.New("invalid measurement gap input")
 	if !d.Grade.Valid || len(d.Checks) != len(catalog.IDs()) {
 		return GapPlan{}, bad
@@ -133,6 +136,20 @@ func MeasurementGapPlan(d Doc, p *obs.MeasurementPrerequisites) (GapPlan, error)
 		case "AMP-1":
 			g.Next = "A sudo listing can hide rules under listpw. Stronger effective-policy evidence is needed; never execute a privileged command to manufacture proof."
 		}
+		g.Disposition, g.Basis = gapDisposition(d, ck)
+		switch g.Disposition {
+		case "policy":
+			g.Next = "Keep the exclusion in force; this is not today's implementation work. " + g.Next
+		case "not_applicable":
+			g.Next = "Keep the workload configuration; this is not a coverage work item. " + g.Next
+		case "unprovable":
+			g.Next = "Do not schedule coverage reruns under the current measurement. " + g.Next
+		case "bridgeable":
+			if g.Basis == "drop_unnecessary_process_access_capabilities_then_retest" {
+				g.Next = "Drop only capabilities the meaningful workload does not require, in an explicit new configuration; then require fresh target coverage, eligible refusals and both applicable controls. If the workload needs the capabilities, retain the inconclusive result."
+			}
+		}
+		plan.Dispositions[g.Disposition]++
 		plan.Gaps = append(plan.Gaps, g)
 	}
 	return plan, nil

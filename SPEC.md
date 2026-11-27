@@ -1131,6 +1131,18 @@ must distinguish permitted workload capabilities from violations of the sandbox'
   schema and identity failures retain EVD-14's fixed unknown labels. The host-only artifact keeps its existing
   organization-default/configuration-only scope and schema; this is neither per-connection denial proof nor
   one of the 28 standard check outcomes.
+- **EVD-23 Bounded coverage dispositions.** Gap plans add one work disposition per inconclusive row:
+  `policy`, `not_applicable`, `unprovable`, or `bridgeable`, with source-fixed basis and exact category totals.
+  This adds fields to the separate output, so new plans declare `sandprobe.measurement-gaps/2`; report and
+  prerequisite schemas stay unchanged. Explicit exclusions and opt-outs take priority over missing features or
+  unimplemented measurements. A source-fixed feature-absence skip or scoped-out discovery is not applicable;
+  do not infer feature absence from a target removed by an exclusion. Find-only no-finding outcomes and
+  connected exchanges without decisive delivery/denial proof are unprovable under the current measurement.
+  Recognized host canary/calibration failures remain bridgeable investigation candidates. Other unknowns need
+  bounded investigation; the label promises no fix or authorization. SEC-2/SEC-5 with reported held process-access
+  capabilities is a bridgeable configuration candidate: drop unnecessary capabilities in an explicit new
+  configuration, then collect a real full negative proof. A drop alone changes no result. Policy/NA/unprovable rows
+  are not work items for a timeboxed coverage effort. Dispositions never alter score, kind, result or conclusive count.
 - **EVD-22 Measurement prerequisites and gap plans.** Managed collectors may persist a separate
   `sandprobe.measurement-prerequisites/1` sidecar from the existing original-agent survey. It records only
   source-fixed proxy configuration, Kubernetes-target presence and vsock-device presence labels, bound to the
@@ -3835,6 +3847,7 @@ Fake secrets hold only `sandprobe-fake` and nothing secret is ever planted.
 | EVD-5 | shared configuration evidence schema, exact image-identity fixtures, Nitro guard and Daytona unavailable-evidence artifact |
 | EVD-11 | pinned-SDK exact organization path and binding/error fixtures; host response sanitization and artifact shape validation tests |
 | EVD-19 | `test_organization_network_policy_uses_only_bound_sandbox` and `test_organization_policy_pinned_sdk_uses_explicit_sandbox_path`: fresh identity binding, exact sandbox GET, no account API/fallback, strict response identity/boolean and bounded failures |
+| EVD-23 | `TestGapDispositions`: policy precedence, missing features, absence/silence, host failures, held-vs-bounding capabilities, complete partition and unchanged scores/results |
 | EVD-22 | `TestMeasurementPrerequisites`, `TestGapPlan`, `TestGapPrerequisiteInput`, and `TestGapsCommand`: masked prerequisites, independent scope/implementation gates, unchanged outcomes, private exclusive writes, strict binding/schema/enum rejection and bounded offline output |
 | EVD-21 | `TestCollectionFailureStageIsBounded` and `TestCollectionFailureSidecarIsBounded`: survey-stage cause retention, fixed stage extraction, nested SDK status/guard classification, no raw-error serialization and no emitted assessment |
 | EVD-20 | `TestManagedEvidenceVersion`, `TestWorkloadSummaryEvidenceVersion`, `test_managed_evidence_versions`: explicit v2 writers, legacy replay, unknown/null version rejection and no unversioned reset-stage downgrade |

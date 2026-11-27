@@ -31,8 +31,9 @@ func gaps(o opts, args []string) (int, error) {
 		o.emit(plan)
 	} else {
 		fmt.Fprintf(o.stdout, "Saved-input gap analysis (not authenticated)\n%d conclusive; %d unproven; %d unknown; %d skipped; %d scoped out\nPrerequisites: %s\n", plan.Conclusive, plan.Unproven, plan.Unknown, plan.Skipped, plan.ScopedOut, plan.Prerequisites)
+		fmt.Fprintf(o.stdout, "Dispositions: %d policy; %d not applicable; %d unprovable; %d bridgeable\n", plan.Dispositions["policy"], plan.Dispositions["not_applicable"], plan.Dispositions["unprovable"], plan.Dispositions["bridgeable"])
 		for _, g := range plan.Gaps {
-			fmt.Fprintf(o.stdout, "\n%s (%s)\n", g.ID, g.Result)
+			fmt.Fprintf(o.stdout, "\n%s (%s; %s)\n", g.ID, g.Result, g.Disposition)
 			for _, r := range g.Requirements {
 				fmt.Fprintf(o.stdout, "  %s: %s\n", r.Code, r.Status)
 			}

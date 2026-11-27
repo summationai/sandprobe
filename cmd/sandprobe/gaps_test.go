@@ -37,7 +37,7 @@ func TestGapsCommand(t *testing.T) {
 		t.Fatal("command failed", code, out)
 	}
 	var p report.GapPlan
-	if json.Unmarshal([]byte(out), &p) != nil || p.Schema != "sandprobe.measurement-gaps/1" || p.Prerequisites != "not_recorded" {
+	if json.Unmarshal([]byte(out), &p) != nil || p.Schema != "sandprobe.measurement-gaps/2" || p.Prerequisites != "not_recorded" {
 		t.Fatal("not a gap plan")
 	}
 	if p.Conclusive+p.Unproven+p.Unknown+p.Skipped+p.ScopedOut != 28 {
