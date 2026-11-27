@@ -3,8 +3,8 @@
 This page is the single source for each provider's status. Each provider's own page has its setup, the exact command,
 what it skips and why, its terms, and what the score can and can't reach there.
 
-"Last validated" names the date and release each provider was last checked with. "Pending" means it hasn't yet
-been checked with a current release.
+"Last validated" is the date of the latest live check recorded on the provider's own page, which says what ran.
+"Pending" means its page records none yet.
 
 - **Stable target:** meant to be fully supported.
 - **Beta:** works, with known gaps that its page names.
