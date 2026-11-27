@@ -1,6 +1,6 @@
 # Any box with a shell: `run exec`
 
-**Status for 0.3.0, being validated:** Stable target. Last validated: pending. [All providers](README.md)
+**Status:** Stable target. Last validated: pending. [All providers](README.md)
 
 `run exec` checks a box you already have, through your own command. Sandprobe creates nothing in it but a scratch
 directory, which it removes, and it never resets or deletes the box (PRV-15).

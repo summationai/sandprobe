@@ -1,6 +1,6 @@
 # Local Docker: `run docker`
 
-**Status for 0.3.0, being validated:** Stable target. Last validated: pending. [All providers](README.md)
+**Status:** Stable target. Last validated: pending. [All providers](README.md)
 
 `run docker` grades a throwaway container made from a local image, on your own machine. No provider is involved
 (PRV-14).

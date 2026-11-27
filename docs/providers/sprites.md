@@ -1,6 +1,6 @@
 # Fly Sprites: `run sprites`
 
-**Status for 0.3.0, being validated:** Stable target. Last validated: pending. [All providers](README.md)
+**Status:** Stable target. Last validated: pending. [All providers](README.md)
 
 `run sprites` creates one sprite with default settings in your Sprites org, checkpoints it, probes it, restores the
 checkpoint to test what survives a reset, and destroys it (the Sprites PRV row in SPEC.md).

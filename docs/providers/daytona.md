@@ -1,6 +1,6 @@
 # Daytona: `run daytona`
 
-**Status for 0.3.0, being validated:** Stable target. Last validated: pending. [All providers](README.md)
+**Status:** Stable target. Last validated: pending. [All providers](README.md)
 
 `run daytona` creates one Daytona sandbox from the default prebuilt CPU snapshot, probes it and deletes it by the ID
 its create returned (PRV-12).
