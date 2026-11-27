@@ -1,6 +1,6 @@
 # Baseten: `run baseten`
 
-**Status for 0.3.0, being validated:** Beta. Last validated: pending. [All providers](README.md)
+**Status:** Beta. Last validated: pending. [All providers](README.md)
 
 `run baseten` creates one Baseten Sandbox from the built-in base image, on CPU with the default memory, probes it and
 deletes it (PRV-6).

@@ -1,6 +1,6 @@
 # exe.dev: `run exe.dev`
 
-**Status for 0.3.0, being validated:** Experimental. Last validated: pending.
+**Status:** Experimental. Last validated: pending.
 [All providers](README.md)
 
 `run exe.dev` creates one standalone Ubuntu 24.04 VM, 2 vCPU and 4 GB, with egress on and no integrations, probes it

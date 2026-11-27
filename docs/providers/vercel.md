@@ -1,6 +1,6 @@
 # Vercel Sandbox: `run vercel`
 
-**Status for 0.3.0, being validated:** Stable target. Last validated: pending. [All providers](README.md)
+**Status:** Stable target. Last validated: pending. [All providers](README.md)
 
 `run vercel` creates one Vercel Sandbox from the built-in universal image, in a team and project you name, probes it
 and cleans it up (PRV-9).

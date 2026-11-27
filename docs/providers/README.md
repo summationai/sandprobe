@@ -3,10 +3,10 @@
 This page is the single source for each provider's status. Each provider's own page has its setup, the exact command,
 what it skips and why, its terms, and what the score can and can't reach there.
 
-> **Status for 0.3.0, being validated.** These tiers are a draft. The maintainers will finalise them before 0.3.0
-> ships. "Last validated" fills in as each provider is checked against 0.3.0.
+"Last validated" names the date and release each provider was last checked with. "Pending" means it hasn't yet
+been checked with a current release.
 
-- **Stable target:** meant to be fully supported in 0.3.0.
+- **Stable target:** meant to be fully supported.
 - **Beta:** works, with known gaps that its page names.
 - **Experimental:** the provider's terms restrict testing, so a live run needs the operator's own authorization or
   clearance, never represented as provider-written permission. Each page quotes its PRV row.

@@ -1,6 +1,6 @@
 # Boat: `run boat`
 
-**Status for 0.3.0, being validated:** Experimental. Last validated: pending.
+**Status:** Experimental. Last validated: pending.
 [All providers](README.md)
 
 `run boat` creates one small CPU VM from Boat's base environment, in your personal wallet, probes it and deletes it

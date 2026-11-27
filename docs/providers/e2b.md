@@ -1,6 +1,6 @@
 # E2B: `run e2b`
 
-**Status for 0.3.0, being validated:** Stable target. Last validated: pending. [All providers](README.md)
+**Status:** Stable target. Last validated: pending. [All providers](README.md)
 
 `run e2b` creates one E2B sandbox from the default `base` CPU template, probes it and deletes it by the ID its create
 returned (PRV-8).

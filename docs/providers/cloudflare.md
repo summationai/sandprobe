@@ -1,6 +1,6 @@
 # Cloudflare Sandbox: `run cloudflare`
 
-**Status for 0.3.0, being validated:** Stable target. Last validated: pending. [All providers](README.md)
+**Status:** Stable target. Last validated: pending. [All providers](README.md)
 
 `run cloudflare` creates one container through a dedicated, authenticated controller Worker that you deploy for the
 run, probes it and destroys it (PRV-10). It uses the built-in `cloudflare/debian-trixie` image on the smallest `lite`
